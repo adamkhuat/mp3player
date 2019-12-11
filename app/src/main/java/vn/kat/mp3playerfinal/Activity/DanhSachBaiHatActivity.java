@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -136,6 +137,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<BaiHat>> call, Response<List<BaiHat>> response) {
                 baiHatArrayList = (ArrayList<BaiHat>) response.body();
+                Log.e("AAAAAAAAAAa", baiHatArrayList.size()+"");
                 danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(DanhSachBaiHatActivity.this, baiHatArrayList);
                 rcvDanhSachBaiHat.setLayoutManager(new LinearLayoutManager(DanhSachBaiHatActivity.this));
                 rcvDanhSachBaiHat.setAdapter(danhSachBaiHatAdapter);

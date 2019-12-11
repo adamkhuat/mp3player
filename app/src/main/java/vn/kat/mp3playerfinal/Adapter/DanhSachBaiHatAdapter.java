@@ -37,8 +37,8 @@ public class DanhSachBaiHatAdapter extends RecyclerView.Adapter<DanhSachBaiHatAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         BaiHat baiHat = baiHatArrayList.get(position);
         holder.tvTenBaiHat.setText(baiHat.getTenBaiHat());
-        holder.tvIndex.setText(position + 1);
         holder.tvCaSi.setText(baiHat.getCaSi());
+        holder.tvIndex.setText(position + 1 + "");
     }
 
     @Override

@@ -13,6 +13,7 @@ import vn.kat.mp3playerfinal.Model.ChuDe;
 import vn.kat.mp3playerfinal.Model.ChuDeVaTheLoai;
 import vn.kat.mp3playerfinal.Model.Playlist;
 import vn.kat.mp3playerfinal.Model.QuangCao;
+import vn.kat.mp3playerfinal.Model.TheLoai;
 
 public interface DataService {
 
@@ -48,5 +49,9 @@ public interface DataService {
 
     @GET("tatcachude.php")
     Call<List<ChuDe>> GetDanhSachChuDe();
+
+    @FormUrlEncoded
+    @POST("theloaitheochude.php")
+    Call<List<TheLoai>> GetTheLoaiTheoChuDe(@Field("idchude") String idchude);
 
 }
