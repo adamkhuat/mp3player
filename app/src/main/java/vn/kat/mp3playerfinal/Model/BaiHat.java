@@ -3,19 +3,8 @@ package vn.kat.mp3playerfinal.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
+public class BaiHat {
 
-public class QuangCao implements Serializable {
-
-    @SerializedName("IdQuangCao")
-    @Expose
-    private String idQuangCao;
-    @SerializedName("HinhAnh")
-    @Expose
-    private String hinhAnh;
-    @SerializedName("NoiDung")
-    @Expose
-    private String noiDung;
     @SerializedName("IDBaiHat")
     @Expose
     private String iDBaiHat;
@@ -25,30 +14,15 @@ public class QuangCao implements Serializable {
     @SerializedName("HinhBaiHat")
     @Expose
     private String hinhBaiHat;
-
-    public String getIdQuangCao() {
-        return idQuangCao;
-    }
-
-    public void setIdQuangCao(String idQuangCao) {
-        this.idQuangCao = idQuangCao;
-    }
-
-    public String getHinhAnh() {
-        return hinhAnh;
-    }
-
-    public void setHinhAnh(String hinhAnh) {
-        this.hinhAnh = hinhAnh;
-    }
-
-    public String getNoiDung() {
-        return noiDung;
-    }
-
-    public void setNoiDung(String noiDung) {
-        this.noiDung = noiDung;
-    }
+    @SerializedName("CaSi")
+    @Expose
+    private String caSi;
+    @SerializedName("LinkBaiHat")
+    @Expose
+    private String linkBaiHat;
+    @SerializedName("LuotThich")
+    @Expose
+    private Object luotThich;
 
     public String getIDBaiHat() {
         return iDBaiHat;
@@ -72,6 +46,30 @@ public class QuangCao implements Serializable {
 
     public void setHinhBaiHat(String hinhBaiHat) {
         this.hinhBaiHat = hinhBaiHat;
+    }
+
+    public String getCaSi() {
+        return caSi;
+    }
+
+    public void setCaSi(String caSi) {
+        this.caSi = caSi;
+    }
+
+    public String getLinkBaiHat() {
+        return linkBaiHat;
+    }
+
+    public void setLinkBaiHat(String linkBaiHat) {
+        this.linkBaiHat = linkBaiHat;
+    }
+
+    public Object getLuotThich() {
+        return luotThich;
+    }
+
+    public void setLuotThich(Object luotThich) {
+        this.luotThich = luotThich;
     }
 
 }

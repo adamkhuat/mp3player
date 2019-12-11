@@ -1,6 +1,7 @@
 package vn.kat.mp3playerfinal.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import vn.kat.mp3playerfinal.Activity.DanhSachBaiHatActivity;
 import vn.kat.mp3playerfinal.Model.QuangCao;
 import vn.kat.mp3playerfinal.R;
 
@@ -38,7 +40,7 @@ public class BannerAdapter extends PagerAdapter {
 
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.dong_banner, null);
 
@@ -52,8 +54,16 @@ public class BannerAdapter extends PagerAdapter {
         tvTitleSongBanner.setText(arrayListBanner.get(position).getTenBaiHat());
         tvNoiDungBanner.setText(arrayListBanner.get(position).getNoiDung());
 
-        container.addView(view);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DanhSachBaiHatActivity.class);
+                intent.putExtra("banner", arrayListBanner.get(position));
+                context.startActivity(intent);
+            }
+        });
 
+        container.addView(view);
         return view;
     }
 

@@ -4,15 +4,40 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:orientation="vertical">
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <fragment
-            android:name="vn.kat.mp3playerfinal.Fragment.Fragment_Banner"
             android:id="@+id/fragmentbanner"
+            android:name="vn.kat.mp3playerfinal.Fragment.Fragment_Banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <fragment
+            android:id="@+id/fragmentplaylist"
+            android:name="vn.kat.mp3playerfinal.Fragment.Fragment_Playlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <fragment
+            android:id="@+id/fragmentchudevatheloai"
+            android:name="vn.kat.mp3playerfinal.Fragment.Fragment_ChuDeVaTheLoai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <fragment
+            android:id="@+id/fragmentalbum"
+            android:name="vn.kat.mp3playerfinal.Fragment.Fragment_Album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <fragment
+            android:id="@+id/fragmentbaihat"
+            android:name="vn.kat.mp3playerfinal.Fragment.Fragment_BaiHat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
