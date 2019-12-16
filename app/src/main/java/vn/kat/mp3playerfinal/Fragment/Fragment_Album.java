@@ -1,5 +1,6 @@
 package vn.kat.mp3playerfinal.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import vn.kat.mp3playerfinal.Activity.DanhsachtatcaAlbumActivity;
 import vn.kat.mp3playerfinal.Adapter.AlbumAdapter;
 import vn.kat.mp3playerfinal.Model.Album;
 import vn.kat.mp3playerfinal.R;
@@ -37,6 +39,13 @@ public class Fragment_Album extends Fragment {
         view = inflater.inflate(R.layout.fragment_album, container, false);
         rcvAlbum = view.findViewById(R.id.rcvAlbum);
         tvXemThemAlbum = view.findViewById(R.id.tvXemThemAlbum);
+        tvXemThemAlbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), DanhsachtatcaAlbumActivity.class);
+                startActivity(intent);
+            }
+        });
         GetData();
         return view;
     }
