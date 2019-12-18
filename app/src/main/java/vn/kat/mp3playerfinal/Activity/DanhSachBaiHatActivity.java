@@ -76,6 +76,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
         }
         if (album != null && !album.getTenAlbum().equals("")){
             setValueInView(album.getTenAlbum(), album.getHinhAlbum());
+
             GetDataAlbum(album.getIDAlbum());
         }
     }
@@ -91,6 +92,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
                 rcvDanhSachBaiHat.setLayoutManager(new LinearLayoutManager(DanhSachBaiHatActivity.this));
                 rcvDanhSachBaiHat.setAdapter(danhSachBaiHatAdapter);
                 eventClick();
+
             }
 
             @Override
@@ -215,6 +217,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
                 theLoai = (TheLoai) intent.getSerializableExtra("idtheloai");
             }
             if (intent.hasExtra("album")) {
+
                 album = (Album) intent.getSerializableExtra("album");
             }
         }

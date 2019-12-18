@@ -20,7 +20,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import vn.kat.mp3playerfinal.Activity.DanhSachTatCaAlbumActivity;
+
+import vn.kat.mp3playerfinal.Activity.DanhsachtatcaAlbumActivity;
 import vn.kat.mp3playerfinal.Adapter.AlbumAdapter;
 import vn.kat.mp3playerfinal.Model.Album;
 import vn.kat.mp3playerfinal.R;
@@ -42,7 +43,8 @@ public class Fragment_Album extends Fragment {
         tvXemThemAlbum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), DanhSachTatCaAlbumActivity.class);
+                Intent intent = new Intent(getActivity(), DanhsachtatcaAlbumActivity.class);
+
                 startActivity(intent);
             }
         });
