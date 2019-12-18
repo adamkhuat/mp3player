@@ -11,12 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
         <activity android:name=".Activity.PlayMusicActivity"></activity>
-        <activity android:name=".Activity.DanhSachTatCaAlbumActivity" />
-=======
-        <activity android:name=".Activity.DanhsachtatcaAlbumActivity"></activity>
->>>>>>> b33cc49ec6426c83dc052fe43581f8418b6460a2
+        <activity android:name=".Activity.DanhsachtatcaAlbumActivity" />
         <activity android:name=".Activity.DanhSachTheLoaiTheoChuDeActivity" />
         <activity android:name=".Activity.DanhSachChuDeActivity" />
         <activity android:name=".Activity.DanhSachPlaylistActivity" />
