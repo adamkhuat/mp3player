@@ -3,18 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.DanhSachTheLoaiTheoChuDeActivity">
-
+    android:layout_height="match_parent"
+    tools:context=".Activity.DanhSachTatCaAlbumActivity">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarTheoChuDe"
+        android:id="@+id/toolbarTatCaAlbum"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"></androidx.appcompat.widget.Toolbar>
+        android:layout_height="?attr/actionBarSize">
 
+    </androidx.appcompat.widget.Toolbar>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvTheLoaiTheochuDe"
+        android:id="@+id/rcvTatCaAlbum"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent" >
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

@@ -19,12 +19,12 @@ import vn.kat.mp3playerfinal.Activity.DanhSachBaiHatActivity;
 import vn.kat.mp3playerfinal.Model.Album;
 import vn.kat.mp3playerfinal.R;
 
-public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
+public class TatCaAlbumAdapter extends RecyclerView.Adapter<TatCaAlbumAdapter.ViewHolder> {
 
     Context context;
     ArrayList<Album> albumArrayList;
 
-    public AlbumAdapter(Context context, ArrayList<Album> albumArrayList) {
+    public TatCaAlbumAdapter(Context context, ArrayList<Album> albumArrayList) {
         this.context = context;
         this.albumArrayList = albumArrayList;
     }
@@ -33,16 +33,15 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_album, parent, false);
+        View view = inflater.inflate(R.layout.dong_tatca_album, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Album album = albumArrayList.get(position);
-        holder.tvCaSiAlbum.setText(album.getTenCaSiAlbum());
-        holder.tvTenAlbum.setText(album.getTenAlbum());
-        Picasso.with(context).load(album.getHinhAlbum()).into(holder.imgHinhAlbum);
+        Picasso.with(context).load(album.getHinhAlbum()).into(holder.imgAllAlbum);
+        holder.tvTenAllAlbum.setText(album.getTenAlbum());
     }
 
     @Override
@@ -51,15 +50,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-        ImageView imgHinhAlbum;
-        TextView tvTenAlbum, tvCaSiAlbum;
-
+        ImageView imgAllAlbum;
+        TextView tvTenAllAlbum;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgHinhAlbum = itemView.findViewById(R.id.imgAlbum);
-            tvTenAlbum = itemView.findViewById(R.id.tvTenAlbum);
-            tvCaSiAlbum = itemView.findViewById(R.id.tvTenCaSiAlbum);
+            imgAllAlbum = itemView.findViewById(R.id.imgAllAlbum);
+            tvTenAllAlbum = itemView.findViewById(R.id.tvTenAllAlbum);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -68,6 +64,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
                     context.startActivity(intent);
                 }
             });
+
         }
     }
+
 }

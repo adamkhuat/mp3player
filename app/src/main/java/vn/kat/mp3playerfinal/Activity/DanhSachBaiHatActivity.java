@@ -31,6 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import vn.kat.mp3playerfinal.Adapter.DanhSachBaiHatAdapter;
+import vn.kat.mp3playerfinal.Model.Album;
 import vn.kat.mp3playerfinal.Model.BaiHat;
 import vn.kat.mp3playerfinal.Model.Playlist;
 import vn.kat.mp3playerfinal.Model.QuangCao;
@@ -52,6 +53,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
     DanhSachBaiHatAdapter danhSachBaiHatAdapter;
     Playlist playlist;
     TheLoai theLoai;
+    Album album;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,30 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
             setValueInView(theLoai.getTenTheLoai(), theLoai.getHinhTheLoai());
             GetDataTheLoai(theLoai.getIDTheLoai());
         }
+        if (album != null && !album.getTenAlbum().equals("")){
+            setValueInView(album.getTenAlbum(), album.getHinhAlbum());
+            GetDataAlbum(album.getIDAlbum());
+        }
+    }
+
+    private void GetDataAlbum(String idAlbum) {
+        DataService dataService = APIService.getService();
+        Call<List<BaiHat>> callback = dataService.GetDanhSachBaiHatTheoAlbum(idAlbum);
+        callback.enqueue(new Callback<List<BaiHat>>() {
+            @Override
+            public void onResponse(Call<List<BaiHat>> call, Response<List<BaiHat>> response) {
+                baiHatArrayList = (ArrayList<BaiHat>) response.body();
+                danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(DanhSachBaiHatActivity.this, baiHatArrayList);
+                rcvDanhSachBaiHat.setLayoutManager(new LinearLayoutManager(DanhSachBaiHatActivity.this));
+                rcvDanhSachBaiHat.setAdapter(danhSachBaiHatAdapter);
+                eventClick();
+            }
+
+            @Override
+            public void onFailure(Call<List<BaiHat>> call, Throwable t) {
+
+            }
+        });
     }
 
 
@@ -85,6 +111,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
                 danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(DanhSachBaiHatActivity.this, baiHatArrayList);
                 rcvDanhSachBaiHat.setLayoutManager(new LinearLayoutManager(DanhSachBaiHatActivity.this));
                 rcvDanhSachBaiHat.setAdapter(danhSachBaiHatAdapter);
+                eventClick();
             }
 
             @Override
@@ -104,6 +131,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
                 danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(DanhSachBaiHatActivity.this, baiHatArrayList);
                 rcvDanhSachBaiHat.setLayoutManager(new LinearLayoutManager(DanhSachBaiHatActivity.this));
                 rcvDanhSachBaiHat.setAdapter(danhSachBaiHatAdapter);
+                eventClick();
             }
 
             @Override
@@ -141,6 +169,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
                 danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(DanhSachBaiHatActivity.this, baiHatArrayList);
                 rcvDanhSachBaiHat.setLayoutManager(new LinearLayoutManager(DanhSachBaiHatActivity.this));
                 rcvDanhSachBaiHat.setAdapter(danhSachBaiHatAdapter);
+                eventClick();
             }
 
             @Override
@@ -161,6 +190,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
         });
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+        floatingActionButton.setEnabled(false);
     }
 
     private void anhxa() {
@@ -184,6 +214,20 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
             if (intent.hasExtra("idtheloai")) {
                 theLoai = (TheLoai) intent.getSerializableExtra("idtheloai");
             }
+            if (intent.hasExtra("album")) {
+                album = (Album) intent.getSerializableExtra("album");
+            }
         }
+    }
+    private void eventClick(){
+        floatingActionButton.setEnabled(true);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DanhSachBaiHatActivity.this, PlayMusicActivity.class);
+                intent.putExtra("cacbaihat", baiHatArrayList);
+                startActivity(intent);
+            }
+        });
     }
 }

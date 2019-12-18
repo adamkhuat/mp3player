@@ -25,6 +25,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import vn.kat.mp3playerfinal.Activity.DanhSachBaiHatActivity;
 import vn.kat.mp3playerfinal.Activity.DanhSachChuDeActivity;
+import vn.kat.mp3playerfinal.Activity.DanhSachTheLoaiTheoChuDeActivity;
 import vn.kat.mp3playerfinal.Model.ChuDe;
 import vn.kat.mp3playerfinal.Model.ChuDeVaTheLoai;
 import vn.kat.mp3playerfinal.Model.TheLoai;
@@ -89,6 +90,15 @@ public class Fragment_ChuDeVaTheLoai extends Fragment {
                     cardView.setLayoutParams(layoutParams);
                     cardView.addView(imageView);
                     linearLayout.addView(cardView);
+                    final int finalI = i;
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getActivity(), DanhSachTheLoaiTheoChuDeActivity.class);
+                            intent.putExtra("chude", chuDeArrayList.get(finalI));
+                            startActivity(intent);
+                        }
+                    });
                 }
 
                 for (int j = 0; j < theLoaiArrayList.size(); j++) {

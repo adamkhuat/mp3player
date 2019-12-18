@@ -52,7 +52,7 @@ public class DanhSachChuDeAdapter extends RecyclerView.Adapter<DanhSachChuDeAdap
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageViewChuDe = itemView.findViewById(R.id.imgDongChuDe);
-            imageViewChuDe.setOnClickListener(new View.OnClickListener() {
+            imageViewChuDe.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, DanhSachTheLoaiTheoChuDeActivity.class);

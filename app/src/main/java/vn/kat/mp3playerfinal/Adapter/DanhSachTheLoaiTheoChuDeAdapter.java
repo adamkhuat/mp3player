@@ -16,55 +16,52 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import vn.kat.mp3playerfinal.Activity.DanhSachBaiHatActivity;
-import vn.kat.mp3playerfinal.Model.Album;
+import vn.kat.mp3playerfinal.Model.TheLoai;
 import vn.kat.mp3playerfinal.R;
 
-public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
+public class DanhSachTheLoaiTheoChuDeAdapter extends RecyclerView.Adapter<DanhSachTheLoaiTheoChuDeAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<Album> albumArrayList;
+    ArrayList<TheLoai> theLoaiArrayList;
 
-    public AlbumAdapter(Context context, ArrayList<Album> albumArrayList) {
+    public DanhSachTheLoaiTheoChuDeAdapter(Context context, ArrayList<TheLoai> theLoaiArrayList) {
         this.context = context;
-        this.albumArrayList = albumArrayList;
+        this.theLoaiArrayList = theLoaiArrayList;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_album, parent, false);
+        View view = inflater.inflate(R.layout.dong_theloai_theo_chude, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Album album = albumArrayList.get(position);
-        holder.tvCaSiAlbum.setText(album.getTenCaSiAlbum());
-        holder.tvTenAlbum.setText(album.getTenAlbum());
-        Picasso.with(context).load(album.getHinhAlbum()).into(holder.imgHinhAlbum);
+        TheLoai theLoai = theLoaiArrayList.get(position);
+        Picasso.with(context).load(theLoai.getHinhTheLoai()).into(holder.imgHinhNen);
+        holder.tvTenTheLoai.setText(theLoai.getTenTheLoai());
+
     }
 
     @Override
     public int getItemCount() {
-        return albumArrayList.size();
+        return theLoaiArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
-        ImageView imgHinhAlbum;
-        TextView tvTenAlbum, tvCaSiAlbum;
-
+        ImageView imgHinhNen;
+        TextView tvTenTheLoai;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgHinhAlbum = itemView.findViewById(R.id.imgAlbum);
-            tvTenAlbum = itemView.findViewById(R.id.tvTenAlbum);
-            tvCaSiAlbum = itemView.findViewById(R.id.tvTenCaSiAlbum);
+            imgHinhNen = itemView.findViewById(R.id.imgTheLoaiTheoChuDe);
+            tvTenTheLoai = itemView.findViewById(R.id.tvTenTheLoaiTheoChuDe);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, DanhSachBaiHatActivity.class);
-                    intent.putExtra("album", albumArrayList.get(getPosition()));
+                    intent.putExtra("idtheloai", theLoaiArrayList.get(getPosition()));
                     context.startActivity(intent);
                 }
             });
