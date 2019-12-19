@@ -54,6 +54,8 @@ public class BannerAdapter extends PagerAdapter {
         tvTitleSongBanner.setText(arrayListBanner.get(position).getTenBaiHat());
         tvNoiDungBanner.setText(arrayListBanner.get(position).getNoiDung());
 
+
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +66,8 @@ public class BannerAdapter extends PagerAdapter {
         });
 
         container.addView(view);
+
+
         return view;
     }
 

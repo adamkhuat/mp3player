@@ -11,49 +11,53 @@
         android:scaleType="fitXY" />
 
     <View
-        android:background="@drawable/custome_background_banner"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="200dp"
+        android:background="@drawable/custome_background_banner" />
 
     <RelativeLayout
         android:id="@+id/relative1"
-        android:layout_alignBottom="@+id/imgBackgroundBanner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imgBackgroundBanner">
+
         <ImageView
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
             android:id="@+id/imgBanner"
-            android:padding="2dp"
             android:layout_width="70dp"
-            android:layout_height="70dp" />
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="2dp" />
+
         <TextView
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:text="I Do"
-            android:textSize="17dp"
             android:id="@+id/tvTitleBannerBaiHat"
-            android:layout_toRightOf="@id/imgBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignTop="@+id/imgBanner"
             android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <RelativeLayout
             android:layout_toRightOf="@id/imgBanner"
+            android:text="I Do"
+            android:textColor="#ffffff"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/tvTitleBannerBaiHat"
             android:layout_marginTop="7dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_toRightOf="@id/imgBanner">
+
             <TextView
                 android:id="@+id/tvNoiDungBanner"
-                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
                 android:maxLines="2"
                 android:text="911"
-                android:layout_marginRight="40dp"
-                android:textSize="13dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textColor="#ffffff"
+                android:textSize="13dp" />
 
         </RelativeLayout>
     </RelativeLayout>

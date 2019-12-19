@@ -77,7 +77,7 @@ public class DanhSachTheLoaiTheoChuDeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent.hasExtra("chude")) {
             chuDe = (ChuDe) intent.getSerializableExtra("chude");
-            Toast.makeText(this, chuDe.getTenChuDe() + "..." + chuDe.getIdChuDe(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, chuDe.getTenChuDe() + "..." + chuDe.getIdChuDe(), Toast.LENGTH_SHORT).show();
         }
     }
 }

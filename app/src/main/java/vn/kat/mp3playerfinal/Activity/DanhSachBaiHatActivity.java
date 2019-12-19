@@ -1,5 +1,6 @@
 package vn.kat.mp3playerfinal.Activity;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -55,6 +56,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
     TheLoai theLoai;
     Album album;
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +76,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
             setValueInView(theLoai.getTenTheLoai(), theLoai.getHinhTheLoai());
             GetDataTheLoai(theLoai.getIDTheLoai());
         }
-        if (album != null && !album.getTenAlbum().equals("")){
+        if (album != null && !album.getTenAlbum().equals("")) {
             setValueInView(album.getTenAlbum(), album.getHinhAlbum());
 
             GetDataAlbum(album.getIDAlbum());
@@ -143,15 +145,16 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void setValueInView(String ten, String hinh) {
         collapsingToolbarLayout.setTitle(ten);
         try {
             URL url = new URL(hinh);
             Bitmap bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                collapsingToolbarLayout.setBackground(bitmapDrawable);
-            }
+
+            collapsingToolbarLayout.setBackground(bitmapDrawable);
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -167,7 +170,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<BaiHat>> call, Response<List<BaiHat>> response) {
                 baiHatArrayList = (ArrayList<BaiHat>) response.body();
-                Log.e("AAAAAAAAAAa", baiHatArrayList.size()+"");
+                Log.e("AAAAAAAAAAa", baiHatArrayList.size() + "");
                 danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(DanhSachBaiHatActivity.this, baiHatArrayList);
                 rcvDanhSachBaiHat.setLayoutManager(new LinearLayoutManager(DanhSachBaiHatActivity.this));
                 rcvDanhSachBaiHat.setAdapter(danhSachBaiHatAdapter);
@@ -222,7 +225,8 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
             }
         }
     }
-    private void eventClick(){
+
+    private void eventClick() {
         floatingActionButton.setEnabled(true);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

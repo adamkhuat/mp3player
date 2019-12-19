@@ -56,6 +56,7 @@ public class Fragment_Banner extends Fragment {
             @Override
             public void onResponse(Call<List<QuangCao>> call, Response<List<QuangCao>> response) {
                 ArrayList<QuangCao> banners = (ArrayList<QuangCao>) response.body();
+                Log.d("BBBB", banners.get(0).getNoiDung());
                 bannerAdapter = new BannerAdapter(getActivity(), banners);
                 viewPager.setAdapter(bannerAdapter);
                 circleIndicator.setViewPager(viewPager);
@@ -65,7 +66,7 @@ public class Fragment_Banner extends Fragment {
                     public void run() {
                         currentItem = viewPager.getCurrentItem();
                         currentItem++;
-                        if (currentItem > viewPager.getAdapter().getCount()){
+                        if (currentItem >= viewPager.getAdapter().getCount()){
                             currentItem = 0;
                         }
                         viewPager.setCurrentItem(currentItem, true);
