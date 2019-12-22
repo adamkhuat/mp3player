@@ -40,7 +40,8 @@ public class DanhSachPlaylistAdapter extends RecyclerView.Adapter<DanhSachPlayli
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Playlist playlist = playlistArrayList.get(position);
-        Picasso.with(context).load(playlist.getHinhAnh()).into(holder.imgPlaylist);
+        Picasso.with(context).load(playlist.getHinhAnh()).into(holder.imgBackgroundPlaylist);
+        Picasso.with(context).load(playlist.getHinhIcon()).into(holder.imgPlaylist);
         holder.tvTenPlaylist.setText(playlist.getTen());
     }
 
@@ -51,10 +52,12 @@ public class DanhSachPlaylistAdapter extends RecyclerView.Adapter<DanhSachPlayli
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPlaylist;
+        ImageView imgBackgroundPlaylist;
         TextView tvTenPlaylist;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgPlaylist = itemView.findViewById(R.id.imgPlaylist);
+            imgBackgroundPlaylist = itemView.findViewById(R.id.imgBackgroundPlaylist);
             tvTenPlaylist = itemView.findViewById(R.id.tvTenPlaylist);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
